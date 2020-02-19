@@ -23,7 +23,6 @@ class Domoticz:
         headers = {}
         payload = {}
         response = requests.request("GET", self.url, headers=headers, data=payload, params=parameters)
-        print(response.text)
         return response.status_code
 
     def log(self, message):
