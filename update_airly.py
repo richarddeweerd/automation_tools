@@ -14,8 +14,7 @@ def main():
     air = airly.Airly(config["Airly"]["Host"], config["Airly"]["APIKey"], config["Airly"]["Installation"])
     if air.update() == 200:
         if air.temp:
-            res = dom.set_sensor_thb(config["idx"]["airly_thb"], air.temp, air.hum, air.baro)
-            print(res)
+            dom.set_sensor_thb(config["idx"]["airly_thb"], air.temp, air.hum, air.baro)
 
         if air.pm1:
             dom.set_sensor_custom(config["idx"]["airly_pm1"], air.pm1)

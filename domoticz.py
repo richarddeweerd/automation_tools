@@ -18,8 +18,8 @@ class Domoticz:
         parameters["type"] = "command"
         parameters["param"] = "udevice"
         parameters["idx"] = idx
-        parameters["sval"] = sval
-        parameters["nval"] = nval
+        parameters["svalue"] = sval
+        parameters["nvalue"] = nval
         headers = {}
         payload = {}
         response = requests.request("GET", self.url, headers=headers, data=payload, params=parameters)
@@ -43,7 +43,7 @@ class Domoticz:
     def set_sensor_thb(self, idx, temp, hum, baro):
         '''Set tem/hum/baro sensor'''
         sval = str(temp) + ";" + str(hum) + ";0;" + str(baro) + ";0"
-        return self.set_sensor(idx, sval)
+        return self.set_sensor(idx, sval=sval)
 
     def set_sensor_custom(self, idx, value):
         '''Set custom sensor'''
